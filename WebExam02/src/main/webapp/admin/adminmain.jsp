@@ -35,6 +35,8 @@
 
 <input  type="button"  value="계정 관리" onclick="location='accMangement.jsp'">
 
+<input  type="button"  value="부서 추가" onclick="location='dept/deptMangement.jsp'">
+
 <input  type="button"  value="로그아웃" onclick="location='logout.jsp'">
 
 		

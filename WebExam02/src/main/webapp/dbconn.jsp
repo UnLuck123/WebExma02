@@ -13,7 +13,7 @@
 	
 	String dbURL = "jdbc:mysql://localhost:3306/account";
 	String dbID = "root";                     //MySQL에 접속을 위한 계정의 ID
-	String dbPassword = "";            //MySQL에 접속을 위한 계정의 암호
+	String dbPassword = "5764";            //MySQL에 접속을 위한 계정의 암호
 	Class.forName("com.mysql.jdbc.Driver");
 	conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 	

@@ -7,6 +7,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>회원가입 페이지</title>
+	<%@ include file="dbconn.jsp" %>
 		
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
@@ -64,9 +65,9 @@
 	          //alert("작업을완료 했습니다");
 	       }
 	    });
-	 }
-	
+	 }	
 	</script>
+	
 </head>
 <body>
 
@@ -154,6 +155,24 @@
 	<button type="button" onclick="execDaumPostcode()">우편번호 찾기</button><br>
 	<input type="text" id=address name="adress" placeholder="도로명 주소" required ><br>
 	<input type="text" id=detailadress name="detailadress" placeholder="상세주소" required ><br>
+	
+	<label>type</label>
+	<select name="type" id=type required>
+	<option value=""disabled selected>-선택-</option>
+	<%
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	String sql = "select * from dept";
+    
+    pstmt = conn.prepareStatement(sql);
+    rs = pstmt.executeQuery();
+	String gender;
+    while (rs.next()) {    	
+    	out.print("<option value='"+ rs.getString("deptnum") +"'>"+ rs.getString("deptname") +"</option>");		
+    }
+    %>
+	</select><br>
 	
 	<input type="submit" value="가입" >
 	<input  type="reset"  value="다시입력">

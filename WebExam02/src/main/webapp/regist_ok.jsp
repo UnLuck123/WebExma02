@@ -35,11 +35,11 @@
 	String Madress3 = request.getParameter("detailadress");
 	String MFrnn = request.getParameter("Frnn");
 	String MSrnn = request.getParameter("Srnn");
-	
+	String Mtype = request.getParameter("type");
 
 	String sql = 
-	"INSERT INTO account(member_id, member_pw, member_name, member_gender, tel1, tel2, tel3, hp, hp1, hp2, hp3, snssts, email, email1, email2, emailsts, adress1, adress2, adress3, Frnn, Srnn)" 
-	+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	"INSERT INTO account(member_id, member_pw, member_name, member_gender, tel1, tel2, tel3, hp, hp1, hp2, hp3, snssts, email, email1, email2, emailsts, adress1, adress2, adress3, Frnn, Srnn, deptnum)" 
+	+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
@@ -64,8 +64,7 @@
 		pstmt.setString(19, Madress3);
 		pstmt.setString(20, MFrnn);
 		pstmt.setString(21, MSrnn);
-
-		
+		pstmt.setString(22, Mtype);
 
 		pstmt.executeUpdate();	
 

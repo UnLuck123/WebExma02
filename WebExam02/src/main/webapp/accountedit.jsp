@@ -135,6 +135,28 @@
 	<input type="text" id=address name="adress" placeholder="도로명 주소" value = "<%=rs.getString(18)%>" required ><br>
 	<input type="text" id=detailadress name="detailadress" placeholder="상세주소" value = "<%=rs.getString(19)%>" required ><br>
 	
+	<label>type</label>
+	<select name="type" id=type required>
+	<option value=""disabled selected>-선택-</option>
+	<%
+	PreparedStatement pstmt2 = null;
+	ResultSet rs2 = null;
+	
+	String sql2 = "select * from dept";
+    
+    pstmt2 = conn.prepareStatement(sql2);
+    rs2 = pstmt2.executeQuery();
+	String gender;
+    while (rs2.next()) {
+    	if(rs.getString(23).equals(rs2.getString(2))){
+        	out.print("<option value='"+ rs2.getString("deptnum") +"' selected >"+ rs2.getString("deptname") +"</option>");
+    	}else{
+    		out.print("<option value='"+ rs2.getString("deptnum") +"'>"+ rs2.getString("deptname") +"</option>");
+    	}
+    }
+    %>
+	</select><br>
+	
 	<input type="submit" value="수정 완료" >
 	
     
